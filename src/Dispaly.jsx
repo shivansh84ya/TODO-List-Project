@@ -104,10 +104,10 @@ const editDataSave=()=>{
        
             {CompBtnFlag?   <button    onClick={() => {
                 myTaskComplete(key.id);
-              }}>Complete</button> : 
+              }}>COMPLETE</button> : 
                <button   onClick={() => {
                 myTaskUncomplete(key.id);
-              }}>unComplete</button> }
+              }}>UNCOMPLETE</button> }
           </td>
           {/* <td>
             <button
@@ -153,11 +153,11 @@ const editDataSave=()=>{
       <hr size="4" color="blue" />
       <table width="700" border="1" bgcolor="pink">
         <tr bgcolor="#ffc107">
-          <th>Sno</th>
-          <th>MyTask</th>
-          <th>Delete</th>
-          <th>{CompBtnFlag ? "complete" : "uncomplete" }</th>
-          <th> edit</th>
+          <th>SNO</th>
+          <th>MY TASK</th>
+          <th>DELETE</th>
+          <th>{CompBtnFlag ? "COMPLETE" : "UNCOMPLETE" }</th>
+          <th> EDIT </th>
         </tr>
         {ans}
       </table>
