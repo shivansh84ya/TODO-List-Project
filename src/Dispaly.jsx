@@ -80,6 +80,7 @@ const editDataSave=()=>{
     sno++;
     return (
       <>
+      <center><h1>TO-DO LIST</h1></center>
         <tr>
           <td>{sno}</td>
           <td>
@@ -134,6 +135,7 @@ const editDataSave=()=>{
 
   return (
     <>
+     <center><h1 style={{"fontSize":"20px"}}>TO-DO LIST</h1></center>
       Enter Task :{" "}
       <input
         type="text"
