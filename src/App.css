@@ -34,7 +34,8 @@ th, td {
 }
 
 th {
-  background-color: #ffc107;
+  background-color: #9a7400;
+  color: white;
   font-weight: bold;
 }
 
@@ -43,26 +44,26 @@ tr:nth-child(even) {
 }
 
 tr:hover {
-  background-color: #e0e0e0; /* Highlight row on hover */
+  background-color: #e0e0e0; 
 }
 
 /* Styling for buttons */
-button {
+.button {
   padding: 12px 20px;
   margin-right: 10px;
   border: none;
   justify-content: center;
   border-radius: 5px;
   cursor: pointer;
-  background-color: #007bff;
+  background-color: #cf9b01;
   color: white;
   font-size: 16px;
-  transition: background-color 0.3s ease; /* Animation for buttons */
+  /* transition: background-color 0.3s ease; Animation for buttons */
   width: 150px;
 }
 
-button:hover {
-  background-color: #0056b3;
+.button:hover {
+  background-color: #e8ae00;
   transform: scale(1.05); /* Scale up on hover */
 }
 

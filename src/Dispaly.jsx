@@ -10,6 +10,9 @@ import {
   MyEditSave
 } from "./todoSlice";
 
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
 import { useDispatch, useSelector } from "react-redux";
 
 var editFlag = 0;
@@ -34,23 +37,31 @@ const Dispaly = () => {
     if (val.trim() !== "") { // Check if the input value is not empty after trimming whitespace
       MyDispach(addTask(val));
       setVal("");
+      // toast.success("Task added"); 
+      
     } else {
-      alert("Please enter a task."); // Display an alert if the input is empty
+      // alert("Please enter a task."); // Display an alert if the input is empty
+      toast.error("Enter a task!");
     }
   };
     
   const myTaskDelete = (myid) => {
     MyDispach(deleteTask(myid));
+    toast.error("Task Deleted !");
+    // alert("deleted")
   };
 
   const myTaskComplete = (myid) => {
     MyDispach(CompleteTask(myid));
     setCompBtnFlag(false)
+    toast.success("Task Completed!");
   };
-
+  
   const myTaskUncomplete = (myid) => {
     MyDispach(unCompleteTask(myid));
     setCompBtnFlag(true)
+    
+    toast.success("Task uncomplet!");
   };
 
   const myTaskEdit = (myid) => {
@@ -58,6 +69,7 @@ const Dispaly = () => {
     editFlag++;
     setEditBtnFlag(false);
     setTmpId(myid);
+    // toast.success("Task Edited !");
 
   };
 
@@ -80,7 +92,6 @@ const editDataSave=()=>{
     sno++;
     return (
       <>
-      <center><h1>TO-DO LIST</h1></center>
         <tr>
           <td>{sno}</td>
           <td>
@@ -93,7 +104,7 @@ const editDataSave=()=>{
             )}
           </td>
           <td>
-            <button
+            <button className="button"
               onClick={() => {
                 myTaskDelete(key.id);
               }}
@@ -103,10 +114,10 @@ const editDataSave=()=>{
           </td>
           <td>
        
-            {CompBtnFlag?   <button    onClick={() => {
+            {CompBtnFlag?   <button   className="button" onClick={() => {
                 myTaskComplete(key.id);
               }}>COMPLETE</button> : 
-               <button   onClick={() => {
+               <button  className="button"  onClick={() => {
                 myTaskUncomplete(key.id);
               }}>UNCOMPLETE</button> }
           </td>
@@ -120,13 +131,14 @@ const editDataSave=()=>{
             </button>
           </td> */}
           <td>
-            <button
+            <button className="button"
               onClick={() => {
                 myTaskEdit(key.id);
               }}
             >
               Edit
             </button>
+            <ToastContainer />
           </td>
         </tr>
       </>
@@ -135,7 +147,7 @@ const editDataSave=()=>{
 
   return (
     <>
-     <center><h1 style={{"fontSize":"20px"}}>TO-DO LIST</h1></center>
+     <center><h1 style={{"fontSize":"40px",color:"#cf9b01"}}>TO-DO LIST</h1></center>
       Enter Task :{" "}
       <input
         type="text"
@@ -147,13 +159,10 @@ const editDataSave=()=>{
         }}
       />
       
-      {editBtnFlag?   <button onClick={myTaskAdd}>Add task</button> :  <button onClick={editDataSave}> Edit save</button> }
-     
-    
-
+      {editBtnFlag?   <button onClick={myTaskAdd} className="button"> Add task</button> :  <button onClick={editDataSave} className="button"> Edit save</button> }
 
       <hr size="4" color="blue" />
-      <table width="700" border="1" bgcolor="pink">
+      <table width="700" border="1" >
         <tr bgcolor="#ffc107">
           <th>SNO</th>
           <th>MY TASK</th>

@@ -4,7 +4,6 @@ import Dispaly from './Dispaly'
 const App = () => {
   return (
     <>
-      <h1>React Task </h1>
       <Dispaly/>
     </>
   )
